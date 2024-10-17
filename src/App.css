@@ -3,6 +3,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
+  color: #333;
 }
 
 header {
@@ -10,6 +11,16 @@ header {
   color: #fff;
   padding: 20px;
   text-align: center;
+  position: relative;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+nav {
+  margin-top: 10px;
 }
 
 nav ul {
@@ -25,16 +36,73 @@ nav ul li {
 nav ul li a {
   color: #fff;
   text-decoration: none;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #f4f4f4;
 }
 
 section {
-  padding: 20px;
+  padding: 40px;
   margin: 20px auto;
   max-width: 800px;
   background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
 h2 {
+  color: #333;
   margin-top: 0;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 10px;
+}
+
+h3 {
+  color: #444;
+}
+
+p {
+  line-height: 1.6;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+footer {
+  text-align: center;
+  margin: 20px 0;
+}
+
+footer p {
+  margin: 5px 0;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+section {
+  padding: 40px;
+  margin: 20px auto;
+  max-width: 800px;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  animation: fadeIn 0.5s ease-out; /* Animation d'apparition */
+  opacity: 0; /* Rendre invisible jusqu'à l'animation */
+  transform: translateY(20px); /* Décaler vers le bas */
+}
+
+section.show {
+  opacity: 1; /* Rendre visible lors de l'affichage */
+  transform: translateY(0); /* Réinitialiser la position */
+}
 }

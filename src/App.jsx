@@ -16,6 +16,9 @@ function App() {
         <Skills />
         <Contact />
       </main>
+      <footer>
+        <p>&copy; {new Date().getFullYear()} Léon Aldo HERINIAINA. Tous droits réservés.</p>
+      </footer>
     </div>
   );
 }
