@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import './CircularMenu.scss';
-import About from './components/About';
-import Projects from './components/Projects';
-import Skills from './components/Skills';
-import Contact from './components/Contact';
+import About from './About';
+import Projects from './Projects';
+import Skills from './Skills';
+import Contact from './Contact';
 
 const CircularMenu = () => {
   const [activeIndex, setActiveIndex] = useState(null);
   const menuItems = [
-    { name: 'Accueil', component: <About /> },
-    { name: 'Projets', component: <Projects /> },
-    { name: 'Compétences', component: <Skills /> },
-    { name: 'À propos', component: <About /> },
-    { name: 'Contact', component: <Contact /> },
+    { name: 'Accueil', route: 'Accueil', component: <About /> },
+    { name: 'Projets', route: 'Projets', component: <Projects /> },
+    { name: 'Compétences', route: 'Compétences', component: <Skills /> },
+    { name: 'À propos', route: 'À propos', component: <About /> },
+    { name: 'Contact', route: 'Contact', component: <Contact /> },
   ];
 
   const handleClick = (index) => {
@@ -28,7 +28,7 @@ const CircularMenu = () => {
               key={index}
               className={`menu-item ${activeIndex === index ? 'active' : ''}`}
               style={{
-                transform: `rotate(${index * (360 / menuItems.length)}deg) translate(150px) rotate(-${index * (360 / menuItems.length)}deg)`
+                transform: `rotate(${index * (360 / menuItems.length)}deg) translate(150px) rotate(-${index * (360 / menuItems.length)}deg)`,
               }}
               onClick={() => handleClick(index)}
             >
@@ -38,11 +38,13 @@ const CircularMenu = () => {
         </ul>
       </div>
 
-      {/* Le cercle supplémentaire à droite */}
+      {/* Cercle supplémentaire à droite */}
       <div className="large-circle">
         {activeIndex !== null && (
-          <div className="selected-route">
-            {menuItems[activeIndex].component}
+          <div className="selected-component-circle">
+            <div className="circular-component">
+              {menuItems[activeIndex].component}
+            </div>
           </div>
         )}
       </div>
