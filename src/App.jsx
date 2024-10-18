@@ -5,20 +5,23 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import './App.css';
+import { motion } from 'framer-motion';
 
 function App() {
   return (
     <div>
       <Header />
-      <main>
+      <motion.main
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
         <About />
         <Projects />
         <Skills />
         <Contact />
-      </main>
-      <footer>
-        <p>&copy; {new Date().getFullYear()} Léon Aldo HERINIAINA. Tous droits réservés.</p>
-      </footer>
+      </motion.main>
     </div>
   );
 }
